@@ -8,8 +8,8 @@ export const SignalsTree = () => {
 		<div>
 			<h1>useSignal</h1>
 			<SignalsIgnore />
-			<SignalsTrigger signal={signal} />
 			<SignalsListener signal={signal} />
+			<SignalsTrigger signal={signal} />
 		</div>
 	)
 }
@@ -21,10 +21,10 @@ export const SignalsTrigger = ({ signal }: { signal: Signal<number> }) => {
 
 const SignalsListener = ({ signal }: { signal: Signal<any> }) => {
 	console.count('signals: renders listener')
-	return <div>{signal.value}</div>
+	return <div>Last updated: {signal.value}</div>
 }
 
 const SignalsIgnore = () => {
 	console.count('signals: renders ignore')
-	return null
+	return <div>Initial load: {Date.now()}</div>
 }

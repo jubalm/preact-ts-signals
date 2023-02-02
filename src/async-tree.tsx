@@ -8,15 +8,15 @@ export const AsyncTree = () => {
 		<div>
 			<h1>useAsyncState</h1>
 			<AsyncIgnore />
-			<AsyncTrigger asyncState={asyncState} />
 			<AsyncListener asyncState={asyncState} />
+			<AsyncTrigger asyncState={asyncState} />
 		</div>
 	)
 }
 
 const AsyncIgnore = () => {
 	console.count('async: renders ignore')
-	return null
+	return <div>Initial load: {Date.now()}</div>
 }
 
 const AsyncListener = ({ asyncState }: { asyncState: ReturnType<typeof useAsyncState<number>> }) => {
@@ -31,7 +31,7 @@ const AsyncListener = ({ asyncState }: { asyncState: ReturnType<typeof useAsyncS
 		case 'rejected':
 			return <div>fail</div>
 		case 'resolved':
-			return <div>{someAsync.value}</div>
+			return <div>Last updated: {someAsync.value}</div>
 		default:
 			return null
 	}
