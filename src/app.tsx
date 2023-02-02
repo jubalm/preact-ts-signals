@@ -1,5 +1,11 @@
+import { AsyncTree } from "./async-tree";
+import { SignalsTree } from "./signals-tree";
+
 export function App() {
   return (
-    <div>Hello Universe</div>
+    <div>
+      <SignalsTree />
+      <AsyncTree />
+    </div>
   )
 }

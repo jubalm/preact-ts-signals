@@ -1,0 +1,1 @@
+export const getTimeStamp = () => new Promise<number>(resolve => setTimeout(() => resolve(Date.now()), 1000))
